@@ -1,0 +1,51 @@
+# =========================
+# Virtual Machines (VERY IMPORTANT)
+# =========================
+*.vdi
+*.vmdk
+*.vmx
+*.vbox
+*.ova
+*.ovf
+*.qcow2
+VirtualBox VMs/
+
+# =========================
+# Wordlists & Large Files
+# =========================
+wordlists/
+seclists/
+*.txt
+rockyou*
+*.7z
+*.zip
+
+# =========================
+# Sensitive Data (NEVER UPLOAD)
+# =========================
+hashes/
+loot/
+creds/
+secrets/
+*.hash
+*.kirbi
+*.ccache
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# OS Junk
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Notes / temp files
+# =========================
+*.bak
+*.tmp
+*.swp
