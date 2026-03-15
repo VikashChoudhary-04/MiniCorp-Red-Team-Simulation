@@ -1,124 +1,83 @@
-# 🛡️ MiniCorp Red Team Simulation
+# MiniCorp Red Team Lab
 
-**Full Attack Chain: External Attacker → Domain Admin**
+## Overview
 
----
+- This repository documents a simulated red team engagement against a small corporate environment called **MiniCorp**.
 
-## 📌 Project Overview
+- The goal of the project is to demonstrate the complete attack lifecycle:
 
-This project simulates a **real-world red team engagement** against a small corporate environment called **MiniCorp**.
+  * External Reconnaissance
+  * Web Application Enumeration
+  * Credential Discovery
+  * Post-Authentication Access
+  * Internal Network Exploration
+  * Active Directory Compromise (planned)
 
-The objective was to demonstrate how an external attacker could compromise a company starting from the public website and ultimately gain **Domain Administrator access** to the internal Active Directory environment.
-
-This lab was built entirely using **free and open-source tools**.
-
----
-
-## 🎯 Engagement Goals
-
-Simulate a real corporate breach and demonstrate:
-
-* External reconnaissance
-* Web application exploitation
-* Credential harvesting
-* Network pivoting
-* Active Directory attacks
-* Privilege escalation
-* Professional red team reporting
+- The entire lab was built locally using VMware and free tools.
 
 ---
 
-## 🏢 Lab Architecture
+## Lab Architecture
 
-The simulated corporate environment consisted of **4 machines**:
+| Machine        | Role              | IP            |
+| -------------- | ----------------- | ------------- |
+| Kali Linux     | Attacker Machine  | 192.168.56.50 |
+| Ubuntu Server  | Public Web Server | 192.168.56.10 |
+| Windows Server | Domain Controller | 192.168.56.20 |
+| Windows 10     | Domain Client     | 192.168.56.30 |
 
-| Machine             | Role                 | IP            |
-| ------------------- | -------------------- | ------------- |
-| Kali Linux          | Attacker Machine     | Attacker      |
-| Ubuntu Server       | Public Web Server    | 192.168.56.10 |
-| Windows Server 2022 | Domain Controller    | 192.168.56.20 |
-| Windows 10          | Employee Workstation | Internal      |
+- Domain Name:
+  ```
+  minicorp.local
+  ```
+---
+
+## Tools Used
+
+- Recon:
+
+  * nmap
+  * wpscan
+  * curl
+
+- Exploitation & Enumeration:
+
+  * searchsploit
+  * impacket
+  * crackmapexec
+  * bloodhound
+  * kerbrute
+  * hashcat
+
+- All tools used are available in Kali Linux.
 
 ---
 
-## 🔥 Attack Path Summary
+## Attack Flow
 
-The attack followed a realistic red team kill chain:
-
-1. External reconnaissance discovered the public WordPress server.
-2. A vulnerable WordPress plugin was exploited to gain a reverse shell.
-3. Sensitive configuration files revealed reused employee credentials.
-4. Credentials were used to access the internal Windows domain.
-5. Active Directory enumeration identified a Kerberoastable service account.
-6. Kerberoasting attack successfully cracked the service account password.
-7. Privilege escalation achieved **Domain Administrator access**.
-
-Final Result:
-
-> 🎉 Full compromise of MiniCorp Active Directory.
+1. External reconnaissance of public server
+2. WordPress enumeration
+3. Discovery of installed plugins
+4. User enumeration
+5. WordPress authentication
+6. Internal exploration of server environment
+7. Planned pivot into Active Directory
 
 ---
 
-## 🧰 Tools Used (All Free)
+## Why This Project Exists
 
-### Recon & Enumeration
+- This lab demonstrates real red team methodology:
 
-* Nmap
-* FFUF
-* WhatWeb
-* theHarvester
+  * Target enumeration
+  * Attack surface analysis
+  * Credential discovery
+  * System access
 
-### Web Exploitation
-
-* Burp Suite Community
-* WPScan
-* Netcat
-
-### Pivoting & Post Exploitation
-
-* Evil-WinRM
-* Impacket
-* BloodHound
-* Hashcat
-
-### Documentation
-
-* Draw.io
-* LibreOffice
-* Obsidian
+- The goal is to simulate how attackers compromise small corporate environments.
 
 ---
 
-## 📂 Repository Contents
+## Disclaimer
 
-| File                  | Description                     |
-| --------------------- | ------------------------------- |
-| LAB_SETUP.md          | Step-by-step lab creation guide |
-| ATTACK_WALKTHROUGH.md | Detailed attack diary           |
-| REPORT PDF            | Professional red team report    |
-| Screenshots           | Evidence of compromise          |
-| Network Diagram       | Visual architecture of lab      |
-
----
-
-## 📈 Skills Demonstrated
-
-* Red Team Methodology
-* Active Directory Security
-* Web Application Exploitation
-* Credential Attacks
-* Network Pivoting
-* Professional Security Reporting
-
----
-
-## 📜 Disclaimer
-
-This project was conducted in a **self-hosted lab environment** for educational and ethical purposes only.
-
----
-
-## 👨‍💻 Author
-
-Aspiring Red Team / Pentester
-2026 Job Preparation Project
+- This project was conducted entirely inside a controlled lab environment for educational purposes.
