@@ -1,4 +1,9 @@
 # MiniCorp Red Team Lab
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+![Markdown](https://img.shields.io/badge/Markdown-Documentation-blue?style=flat-square)
+![Hands-on](https://img.shields.io/badge/Hands--on-Yes-success?style=flat-square)
+![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Offensive-red?style=flat-square)
+![Pentesting](https://img.shields.io/badge/Pentesting-Web_App-important?style=flat-square)
 
 ## Overview
 
