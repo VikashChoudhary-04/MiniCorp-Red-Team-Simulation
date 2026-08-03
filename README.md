@@ -4,9 +4,8 @@
 
 ### Enterprise Infrastructure, Active Directory Administration, and Security Assessment Lab
 
-<p align="center">
+<p>
 
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 ![Windows Server](https://img.shields.io/badge/Windows%20Server-2022-0078D6?style=for-the-badge&logo=windows)
 ![Windows 10](https://img.shields.io/badge/Windows-10-0078D6?style=for-the-badge&logo=windows)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?style=for-the-badge&logo=ubuntu)
@@ -57,6 +56,20 @@
 
 ---
 
+## Quick Navigation
+
+- 🏗️ Enterprise Architecture
+- 🖥️ Active Directory
+- 🔐 Group Policy
+- 🌐 Network Services
+- 🐧 Ubuntu Server
+- 🌍 WordPress
+- 🛡️ Security Assessment
+- 📊 Findings
+- 📚 Documentation
+
+---
+
 ## Implemented Components
 
 | Component | Status |
@@ -81,25 +94,89 @@
 
 ## Screenshots
 
-> **Note**
->
-> The following screenshots provide a visual overview of the MiniCorp environment. Detailed screenshots are available throughout the repository documentation.
+- The following screenshots provide a visual overview of the MiniCorp environment. Additional screenshots are available throughout the project documentation.
 
-| Infrastructure | Windows Administration |
-|----------------|------------------------|
-| `screenshots/infrastructure/network-overview.png` | `screenshots/active-directory/active-directory-users.png` |
+### Infrastructure
 
-| Group Policy | WordPress |
-|---------------|-----------|
-| `screenshots/group-policy/drive-mapping.png` | `screenshots/wordpress/dashboard.png` |
+<p align="center">
+<img src="screenshots/infrastructure/vmware-workstation.png" width="95%" alt="VMware Workstation">
+</p>
 
-| Network Assessment | Directory Services |
-|--------------------|--------------------|
-| `screenshots/nmap/domain-controller-scan.png` | `screenshots/ldap/ldap-enumeration.png` |
+<p align="center">
+<em>Figure 1. VMware Workstation hosting the complete MiniCorp enterprise environment.</em>
+</p>
 
-| SMB | Findings |
-|------|----------|
-| `screenshots/smb/share-validation.png` | `screenshots/findings/apache-server-status.png` |
+<p align="center">
+<img src="screenshots/infrastructure/virtual-network-editor.png" width="95%" alt="Virtual Network Editor">
+</p>
+
+<p align="center">
+<em>Figure 2. VMware Virtual Network Editor configuration for the isolated enterprise network.</em>
+</p>
+
+<p align="center">
+<img src="screenshots/infrastructure/host-discovery.png" width="95%" alt="Host Discovery">
+</p>
+
+<p align="center">
+<em>Figure 3. ARP-based host discovery performed against the scoped MiniCorp infrastructure.</em>
+</p>
+
+---
+
+### Active Directory
+
+<p align="center">
+<img src="screenshots/active-directory/active-directory-users-and-computers.png" width="95%" alt="Active Directory Users and Computers">
+</p>
+
+<p align="center">
+<em>Figure 4. Active Directory Users and Computers showing the MiniCorp domain structure.</em>
+</p>
+
+<p align="center">
+<img src="screenshots/active-directory/domain-controller.png" width="95%" alt="Domain Controller">
+</p>
+
+<p align="center">
+<em>Figure 5. Windows Server 2022 acting as the MiniCorp Domain Controller.</em>
+</p>
+
+---
+
+### Group Policy
+
+<p align="center">
+<img src="screenshots/group-policy/group-policy-management.png" width="95%" alt="Group Policy Management">
+</p>
+
+<p align="center">
+<em>Figure 6. Group Policy Management Console.</em>
+</p>
+
+<p align="center">
+<img src="screenshots/group-policy/workstation-security-gpo.png" width="95%" alt="Workstation Security GPO">
+</p>
+
+<p align="center">
+<em>Figure 7. MiniCorp Workstation Security Group Policy.</em>
+</p>
+
+<p align="center">
+<img src="screenshots/group-policy/drive-mapping-gpo.png" width="95%" alt="Drive Mapping GPO">
+</p>
+
+<p align="center">
+<em>Figure 8. Department drive mapping configuration.</em>
+</p>
+
+<p align="center">
+<img src="screenshots/group-policy/security-filtering.png" width="95%" alt="Security Filtering">
+</p>
+
+<p align="center">
+<em>Figure 9. Security filtering applied to the Group Policy Object.</em>
+</p>
 
 ---
 
@@ -111,11 +188,20 @@
 - [Enterprise Architecture](#enterprise-architecture)
 - [Technology Stack](#technology-stack)
 - [Infrastructure Overview](#infrastructure-overview)
+- [Windows Domain Controller](#windows-domain-controller)
+- [Active Directory Structure](#active-directory-structure)
+- [Windows Client](#windows-client)
+- [Ubuntu Server](#ubuntu-server)
+- [Network Design](#network-design)
+- [Active Directory Administration](#active-directory-administration)
+- [Windows Administration](#windows-administration)
+- [Linux Administration](#linux-administration)
 - [Security Configuration](#security-configuration)
 - [Assessment Methodology](#assessment-methodology)
 - [Assessment Summary](#assessment-summary)
 - [Key Findings](#key-findings)
 - [Hardening Highlights](#hardening-highlights)
+- [MITRE ATT&CK Mapping](#mitre-attck-mapping)
 - [Skills Demonstrated](#skills-demonstrated)
 - [Project Statistics](#project-statistics)
 - [Repository Structure](#repository-structure)
@@ -123,74 +209,156 @@
 - [Future Improvements](#future-improvements)
 - [Lessons Learned](#lessons-learned)
 - [Ethics](#ethics)
-- [License](#license)
 
 ---
 
 ## Overview
 
-- MiniCorp is a simulated enterprise environment built to demonstrate practical skills in infrastructure deployment, centralized administration, and security assessment.
+- MiniCorp is a simulated enterprise environment built to demonstrate practical skills in infrastructure deployment, centralized administration, and internal security assessment.
 
-- The environment models a small corporate network consisting of a Windows Active Directory domain, a domain-joined Windows workstation, and a Linux web server hosting a WordPress application. Together, these systems provide a realistic platform for learning enterprise administration, validating security configurations, and performing structured security assessments.
+- The environment models a small corporate network consisting of:
 
-- Unlike projects focused solely on exploitation or infrastructure deployment, MiniCorp covers the complete lifecycle of an enterprise lab:
+    - Windows Server 2022 Domain Controller
+    - Windows 10 domain-joined workstation
+    - Ubuntu Server 24.04 LTS
+    - Active Directory Domain Services
+    - DNS
+    - LDAP
+    - SMB
+    - Group Policy
+    - Apache
+    - PHP
+    - MariaDB
+    - WordPress
 
-    - Designing the environment.
-    - Deploying Windows and Linux systems.
-    - Configuring centralized identity and access management.
-    - Implementing enterprise services.
-    - Performing an authorized security assessment.
-    - Documenting observations and recommendations using professional reporting practices.
+- Unlike projects that focus solely on exploitation or infrastructure deployment, MiniCorp demonstrates the complete enterprise lifecycle:
 
-- All systems, credentials, configurations, assessment activities, and evidence contained in this repository belong exclusively to a privately owned laboratory environment created for educational and portfolio purposes.
+    - Enterprise infrastructure design
+    - Windows Server deployment
+    - Linux server deployment
+    - Identity and access management
+    - Centralized administration
+    - Security assessment
+    - Technical reporting
+    - Security hardening recommendations
+
+- All systems, credentials, assessment activities, screenshots, and documentation contained within this repository belong exclusively to a privately owned laboratory environment created for educational and portfolio purposes.
 
 ---
 
 ## Why MiniCorp?
 
-- Many cybersecurity projects focus on a single technology or a specific security tool. MiniCorp was designed to integrate multiple enterprise technologies into a cohesive environment that reflects common administrative and security workflows.
+- Many cybersecurity projects demonstrate individual tools or isolated attack techniques.
 
-- The project emphasizes practical implementation rather than isolated demonstrations. It combines Windows Server administration, Linux server deployment, identity management, access control, network services, and security assessment into a single, documented environment.
+- MiniCorp instead demonstrates how multiple enterprise technologies integrate into a functioning environment that can be deployed, administered, assessed, documented, and hardened.
 
-- This approach provides experience with both building and assessing enterprise infrastructure while maintaining a clear distinction between system administration tasks and security evaluation.
+- The project combines:
+
+    - Enterprise infrastructure
+    - Active Directory administration
+    - Windows administration
+    - Linux administration
+    - Identity and Access Management (IAM)
+    - Group Policy
+    - Enterprise networking
+    - Internal security assessment
+    - Professional documentation
+
+- This provides practical experience that closely resembles real enterprise environments.
 
 ---
 
 ## Key Features
 
-- Enterprise Active Directory deployment.
-- Windows Server 2022 administration.
-- Windows 10 domain integration.
-- Ubuntu Server deployment and administration.
-- Apache, PHP, MariaDB, and WordPress installation.
-- Active Directory Users and Computers (ADUC) management.
-- Organizational Unit (OU) design.
-- Security group management.
-- Department-based access control.
-- NTFS permission management.
-- SMB share configuration.
-- DNS and LDAP services.
-- Group Policy configuration and enforcement.
-- Internal security assessment methodology.
-- Evidence-based findings and hardening recommendations.
-- Comprehensive technical documentation.
+- Enterprise Active Directory deployment
+- Windows Server 2022 administration
+- Windows 10 domain integration
+- Ubuntu Server deployment
+- Apache HTTP Server
+- PHP
+- MariaDB
+- WordPress
+- Organizational Unit design
+- Security group management
+- Department-based authorization
+- NTFS permissions
+- SMB file sharing
+- DNS
+- LDAP
+- Group Policy implementation
+- Structured internal security assessment
+- Evidence-based findings
+- Hardening recommendations
+- Professional technical documentation
 
 ---
 
 ## Enterprise Architecture
 
-- The MiniCorp environment simulates a small enterprise network consisting of centralized identity management, managed Windows endpoints, and Linux-based web infrastructure. The architecture is intentionally designed to demonstrate enterprise administration concepts alongside practical security assessment techniques.
-
-> **Note**
->
-> A professional architecture diagram (`diagrams/enterprise-network.svg`) will be included in the final repository and referenced throughout the documentation.
+- The MiniCorp environment simulates a small enterprise network consisting of centralized identity management, managed Windows endpoints, and Linux-based web infrastructure.
 
 <p align="center">
-  <img src="diagrams/enterprise-network.svg" width="95%" alt="MiniCorp Enterprise Network Architecture">
+<img src="diagrams/enterprise-network.drawio.svg" width="95%" alt="MiniCorp Enterprise Network">
 </p>
 
 <p align="center">
-  <em>Figure 1. MiniCorp Enterprise Network Architecture.</em>
+<em>Figure 10. Enterprise network architecture.</em>
+</p>
+
+---
+
+## Active Directory Structure
+
+- The enterprise directory service is organized using Organizational Units, security groups, and departmental access controls.
+
+<p align="center">
+<img src="diagrams/active-directory.drawio.svg" width="85%" alt="Active Directory Structure">
+</p>
+
+<p align="center">
+<em>Figure 11. Active Directory hierarchy implemented within MiniCorp.</em>
+</p>
+
+---
+
+## Authentication & Authorization Workflow
+
+- Authentication is performed through Active Directory while authorization is enforced using security groups together with SMB and NTFS permissions.
+
+<p align="center">
+<img src="diagrams/authentication-flow.drawio.svg" width="80%" alt="Authentication Flow">
+</p>
+
+<p align="center">
+<em>Figure 12. Enterprise authentication and authorization workflow.</em>
+</p>
+
+---
+
+## Group Policy Processing
+
+- Group Policy Objects provide centralized configuration management for domain-joined systems.
+
+<p align="center">
+<img src="diagrams/group-policy-flow.drawio.svg" width="80%" alt="Group Policy Flow">
+</p>
+
+<p align="center">
+<em>Figure 13. Group Policy processing within the MiniCorp environment.</em>
+</p>
+
+---
+
+## Security Assessment Workflow
+
+- The assessment followed a structured workflow progressing from infrastructure validation through reporting and remediation.
+
+<p align="center">
+<img src="diagrams/security-assessment-workflow.drawio.svg" width="90%" alt="Security Assessment Workflow">
+</p>
+
+<p align="center">
+<em>Figure 14. Internal security assessment workflow.</em>
 </p>
 
 ---
@@ -249,20 +417,20 @@
 
 | Tool | Purpose |
 |------|---------|
-| Nmap | Host discovery, service detection, port scanning |
+| Nmap | Host discovery, service detection, and port scanning |
 | Nikto | Web server assessment |
-| Gobuster | Content and directory enumeration |
+| Gobuster | Directory enumeration |
 | curl | Manual HTTP inspection |
 | ldapsearch | LDAP enumeration |
-| smbclient | SMB enumeration and validation |
-| nslookup | DNS testing |
+| smbclient | SMB validation |
+| nslookup | DNS resolution testing |
 | dig | DNS interrogation |
 
 ---
 
 ## Infrastructure Overview
 
-- The MiniCorp environment consists of three primary virtual machines connected through an isolated virtual network. Each machine performs a dedicated enterprise role while interacting with the others through standard Windows and Linux services.
+- The MiniCorp environment consists of three primary virtual machines connected through an isolated virtual network. Each system performs a dedicated enterprise role while communicating through standard Windows and Linux services.
 
 | System | Role | IP Address |
 |---------|------|------------|
@@ -274,7 +442,16 @@
 
 ## Windows Domain Controller
 
-- The Domain Controller serves as the core of the enterprise environment, providing centralized authentication, authorization, policy enforcement, and name resolution for all domain-joined systems.
+- The Domain Controller serves as the central management system for the enterprise environment.
+
+- Its responsibilities include:
+
+    - Centralized authentication
+    - Centralized authorization
+    - Policy enforcement
+    - DNS services
+    - Directory services
+    - Enterprise file sharing
 
 ### Configured Services
 
@@ -293,7 +470,7 @@
 
 ## Active Directory Structure
 
-- The Active Directory implementation models a departmental organizational structure commonly found in enterprise environments.
+- The Active Directory implementation models a departmental enterprise environment.
 
 ### Organizational Units
 
@@ -321,7 +498,7 @@
 - Charlie Brown
 - David Wilson
 
-Access to enterprise resources is controlled through Active Directory group membership combined with NTFS and SMB permissions.
+Authorization is enforced through Active Directory group membership combined with SMB share permissions and NTFS permissions.
 
 ---
 
@@ -329,28 +506,31 @@ Access to enterprise resources is controlled through Active Directory group memb
 
 - The Windows client represents a managed enterprise workstation joined to the Active Directory domain.
 
-- The system is used to validate centralized administration, authentication, authorization, and Group Policy enforcement.
+- The workstation is used to validate:
 
-### Configured Features
+    - Domain authentication
+    - Centralized administration
+    - Group Policy enforcement
+    - Department-based authorization
+    - Enterprise access control
+
+### Implemented Features
 
 - Domain Join
 - Department User Accounts
-- Group Policy Application
-- Drive Mapping
-- Department-based Access Control
+- Group Policy Processing
+- Department Drive Mapping
 - Registry Restrictions
 - Command Prompt Restrictions
 - Control Panel Restrictions
 
-The workstation demonstrates how centralized administration can enforce consistent security settings across managed devices.
+These configurations demonstrate how enterprise administrators centrally manage Windows endpoints.
 
 ---
 
 ## Ubuntu Server
 
-- The Ubuntu server represents an internally hosted Linux web server providing a typical LAMP-style web application environment.
-
-- It hosts the enterprise web application assessed during the security evaluation.
+- The Ubuntu Server hosts the enterprise web application assessed during the security evaluation.
 
 ### Installed Components
 
@@ -359,73 +539,71 @@ The workstation demonstrates how centralized administration can enforce consiste
 | Ubuntu Server 24.04 LTS | Operating System |
 | Apache HTTP Server | Web Server |
 | PHP | Server-side Runtime |
-| MariaDB | Database |
-| WordPress | Web Application |
+| MariaDB | Database Server |
+| WordPress | Enterprise Web Application |
 | OpenSSH | Remote Administration |
 
 ---
 
 ### Network Configuration
 
-- The Ubuntu server uses two network interfaces.
+- The server uses two network interfaces.
 
 | Interface | Purpose |
 |-----------|---------|
-| Host-Only Adapter | Communication with the MiniCorp enterprise network |
-| NAT Adapter | Internet connectivity for package installation and updates |
+| Host-Only Adapter | Internal MiniCorp network communication |
+| NAT Adapter | Internet connectivity for updates and package installation |
 
-Separating internal communication from external connectivity reflects a common enterprise deployment pattern.
+- This separation mirrors common enterprise deployment practices by isolating internal communication from external connectivity.
 
 ---
 
 ## Network Design
 
-- The MiniCorp lab uses an isolated host-only network to simulate internal enterprise communication while allowing the Ubuntu server to access the internet through a separate NAT adapter for software installation and maintenance.
+- MiniCorp uses an isolated host-only network to simulate internal enterprise communication.
 
 | Network | Purpose |
 |----------|---------|
 | `192.168.192.0/24` | Internal enterprise network |
-| NAT Network | Internet access for Ubuntu updates |
+| NAT Network | Internet connectivity for Ubuntu updates |
 
-- This design enables controlled interaction between all virtual machines while maintaining separation from the host environment.
+- This architecture enables secure communication between enterprise systems while preventing unintended interaction with external networks.
 
 ---
 
 ## Active Directory Administration
 
-- The project demonstrates practical administration of an Active Directory environment, including user lifecycle management, organizational design, and centralized authorization.
-
-- Implemented administrative tasks include:
+- The project demonstrates practical enterprise administration tasks including:
 
     - Domain creation
     - Organizational Unit management
-    - User account creation
+    - User account administration
     - Security group administration
     - Group membership management
-    - Department-based access control
-    - File share authorization
+    - Department-based authorization
+    - SMB share configuration
     - NTFS permission management
 
-- These tasks reflect common responsibilities performed by Windows administrators in enterprise environments.
+- These tasks closely resemble day-to-day responsibilities performed by enterprise Windows administrators.
 
 ---
 
 ## Windows Administration
 
-- The Windows administration component focuses on centralized management through Group Policy and Active Directory.
+- Centralized administration is implemented through Active Directory and Group Policy.
 
-- Implemented configuration includes:
+### Implemented Policies
 
-    - Password Policy
-    - Account Lockout Policy
-    - Interactive Logon Banner
-    - Drive Mapping
-    - Registry Restrictions
-    - Command Prompt Restrictions
-    - Control Panel Restrictions
-    - User-based Group Policy Filtering
+- Password Policy
+- Account Lockout Policy
+- Interactive Logon Banner
+- Drive Mapping
+- Registry Restrictions
+- Command Prompt Restrictions
+- Control Panel Restrictions
+- User-based Security Filtering
 
-- The configuration demonstrates how enterprise environments enforce security policies consistently across managed workstations.
+These policies demonstrate centralized configuration management across domain-joined systems.
 
 ---
 
@@ -433,26 +611,26 @@ Separating internal communication from external connectivity reflects a common e
 
 - The Linux administration component focuses on deploying and maintaining a production-style web server.
 
-- Administrative tasks include:
+### Administrative Tasks
 
-    - Ubuntu Server installation
-    - Static network configuration
-    - Apache deployment
-    - MariaDB installation
-    - WordPress deployment
-    - OpenSSH configuration
-    - Package management
-    - Service administration
+- Ubuntu Server installation
+- Static IP configuration
+- Apache deployment
+- MariaDB installation
+- WordPress deployment
+- OpenSSH configuration
+- Package management
+- Service administration
 
-- These tasks provide practical experience with Linux server deployment and maintenance within an enterprise environment.
+Together, these tasks demonstrate practical Linux system administration within an enterprise environment.
 
 ---
 
 ## Security Configuration
 
-- The MiniCorp environment incorporates multiple security controls that demonstrate centralized administration and enterprise access management. These controls were implemented to simulate common organizational security policies while providing a realistic environment for validation during the security assessment.
+- MiniCorp incorporates multiple enterprise security controls that demonstrate centralized identity management and layered authorization.
 
-### Identity and Access Management
+### Identity & Access Management
 
 - Authentication and authorization are centralized through Active Directory Domain Services.
 
@@ -461,56 +639,52 @@ Separating internal communication from external connectivity reflects a common e
     - Centralized user authentication
     - Department-based authorization
     - Security group management
-    - Organizational Unit (OU) separation
-    - Role-based access control
-    - Centralized account management
+    - Organizational Unit separation
+    - Role-Based Access Control (RBAC)
+    - Centralized account administration
 
 ---
 
 ### Group Policy
 
-- Group Policy is used to enforce consistent configuration across domain-joined systems.
-
-- Implemented policies include:
+- Group Policy provides consistent configuration across all managed Windows systems.
 
 | Policy | Purpose |
 |----------|---------|
-| Password Policy | Enforce password complexity and length |
-| Account Lockout Policy | Mitigate password guessing attacks |
+| Password Policy | Enforce password complexity |
+| Account Lockout Policy | Mitigate password guessing |
 | Interactive Logon Banner | Display organizational security notice |
 | Drive Mapping | Automatically map departmental network shares |
 | Registry Restrictions | Prevent unauthorized registry modification |
-| Command Prompt Restrictions | Limit access to the command interpreter |
-| Control Panel Restrictions | Restrict access to system configuration |
-| User-based Filtering | Apply policies to specific security groups |
+| Command Prompt Restrictions | Restrict command interpreter access |
+| Control Panel Restrictions | Restrict system configuration |
+| Security Filtering | Apply policies to selected user groups |
 
 ---
 
-### File Sharing and Authorization
+### File Sharing & Authorization
 
-- Departmental resources are shared using SMB while authorization is enforced through a combination of:
+- Departmental resources are protected through layered authorization using:
 
     - Active Directory Security Groups
     - SMB Share Permissions
     - NTFS Permissions
 
-- This layered approach ensures that users can only access resources explicitly assigned to their departmental roles.
+- This layered model ensures users receive access only to resources assigned to their departmental role.
 
 ---
 
-### Network Services
-
-- Core enterprise services include:
+## Core Enterprise Services
 
 | Service | Purpose |
 |----------|---------|
 | DNS | Name resolution |
 | LDAP | Directory queries |
 | Kerberos | Authentication |
-| SMB | File sharing |
+| SMB | Enterprise file sharing |
 | Group Policy | Centralized configuration |
 
-- Together, these services provide the foundation for enterprise identity management and administration.
+- These services collectively provide the identity, authentication, authorization, and administration foundation of the MiniCorp environment.
 
 ---
 
@@ -518,7 +692,7 @@ Separating internal communication from external connectivity reflects a common e
 
 - Following infrastructure deployment, a structured internal security assessment was performed against the MiniCorp environment.
 
-- The assessment focused on validating service configurations, identifying exposed attack surfaces, verifying authorization controls, and documenting evidence-based observations.
+- The assessment focused on validating service configurations, verifying authorization controls, identifying exposed attack surfaces, and documenting evidence-based observations.
 
 > **Important**
 >
@@ -526,98 +700,64 @@ Separating internal communication from external connectivity reflects a common e
 
 ---
 
-## Assessment Scope
+### Assessment Scope
 
-### Systems Assessed
+#### Systems Assessed
 
 | System | Assessment Areas |
 |----------|------------------|
 | MiniCorp-DC | DNS, LDAP, SMB, Active Directory Services |
-| MiniCorp-Client | Group Policy, Access Control Validation |
+| MiniCorp-Client | Group Policy, Authentication, Access Control Validation |
 | MiniCorp-Ubuntu | Apache, WordPress, Web Server Configuration |
 
 ---
 
 ### Assessment Objectives
 
-- The assessment sought to:
+- The assessment aimed to:
 
-    - Identify exposed network services.
-    - Validate Active Directory functionality.
-    - Verify DNS operation.
-    - Assess LDAP accessibility.
-    - Validate SMB authorization.
-    - Review web server configuration.
-    - Assess the deployed WordPress application.
-    - Document observations and recommendations.
+    - Discover enterprise hosts
+    - Identify exposed network services
+    - Validate Active Directory functionality
+    - Verify DNS operation
+    - Assess LDAP accessibility
+    - Validate SMB authorization
+    - Review web server configuration
+    - Assess the deployed WordPress application
+    - Document findings and remediation recommendations
 
 ---
 
 ## Assessment Workflow
 
-- The assessment followed a structured workflow designed to progress from discovery to validation and reporting.
+- The assessment followed a structured workflow from infrastructure validation through reporting.
 
-```text
-Infrastructure Verification
-        │
-        ▼
-Host Discovery
-        │
-        ▼
-Service Enumeration
-        │
-        ▼
-DNS Assessment
-        │
-        ▼
-LDAP Assessment
-        │
-        ▼
-SMB Assessment
-        │
-        ▼
-Web Server Assessment
-        │
-        ▼
-WordPress Assessment
-        │
-        ▼
-Configuration Review
-        │
-        ▼
-Evidence Collection
-        │
-        ▼
-Security Findings
-        │
-        ▼
-Hardening Recommendations
-```
+<p align="center">
+<img src="diagrams/security-assessment-workflow.drawio.svg" width="90%" alt="Security Assessment Workflow">
+</p>
 
 ---
 
-## Assessment Tools
+### Assessment Tools
 
-| Tool | Primary Use |
-|------|-------------|
+| Tool | Purpose |
+|------|---------|
 | Nmap | Host discovery and service enumeration |
 | Nikto | Web server assessment |
 | Gobuster | Directory enumeration |
-| curl | HTTP inspection |
+| curl | Manual HTTP inspection |
 | ldapsearch | LDAP enumeration |
 | smbclient | SMB validation |
-| nslookup | DNS resolution testing |
+| nslookup | DNS validation |
 | dig | DNS interrogation |
 
 ---
 
 ## Network Enumeration
 
-- The assessment began with host discovery and service identification across the MiniCorp environment.
+- Infrastructure validation began by identifying active hosts and verifying enterprise services within the defined assessment scope.
 
-- Known enterprise systems were individually assessed to identify exposed services and verify expected functionality.
-
-### Enumerated Hosts
+### Enumerated Systems
 
 | Host | Operating System | Role |
 |------|------------------|------|
@@ -627,25 +767,25 @@ Hardening Recommendations
 
 ---
 
-## Service Validation
+### Service Validation
 
-- Enumeration confirmed services consistent with the intended roles of each system.
+- Service enumeration confirmed the expected enterprise services.
 
-### MiniCorp-DC
+#### MiniCorp-DC
 
-- Observed enterprise services included:
+- Validated services included:
 
-- DNS
-- Kerberos
-- LDAP
-- SMB
-- Global Catalog
-- Microsoft RPC
-- WinRM
+    - DNS
+    - Kerberos
+    - LDAP
+    - SMB
+    - Microsoft RPC
+    - Global Catalog
+    - WinRM
 
 ### MiniCorp-Ubuntu
 
-- Observed services included:
+- Validated services included:
 
     - SSH
     - HTTP
@@ -656,24 +796,20 @@ Hardening Recommendations
 
 ## DNS Assessment
 
-- The assessment verified the operation of the Active Directory integrated DNS service.
+- DNS validation confirmed:
 
-- Validation included:
-
-    - Domain resolution
-    - Forward lookup testing
+    - Forward lookup functionality
     - Authoritative responses
-    - Internal name resolution
+    - Internal domain resolution
+    - Active Directory integrated DNS operation
 
-- The assessment confirmed successful resolution of the Active Directory domain and expected DNS behavior.
+- The assessment verified successful resolution of the `minicorp.local` domain.
 
 ---
 
 ## LDAP Assessment
 
-- Authenticated LDAP queries were performed using standard domain credentials.
-
-- The assessment verified access to expected directory information including:
+- Authenticated LDAP enumeration successfully retrieved:
 
     - User objects
     - Security groups
@@ -681,15 +817,15 @@ Hardening Recommendations
     - Distinguished Names
     - Naming Contexts
 
-- This demonstrated the information available to authenticated domain users while validating directory functionality.
+- This demonstrated the information available to authenticated domain users while validating correct directory service operation.
 
 ---
 
 ## SMB Assessment
 
-- SMB testing focused on validating departmental authorization rather than identifying misconfigurations.
+- SMB testing focused on validating authorization rather than identifying misconfigurations.
 
-- Authenticated access confirmed that share permissions aligned with Active Directory group membership.
+- Authenticated testing confirmed that access permissions aligned with Active Directory group membership.
 
 ### Example Validation
 
@@ -700,30 +836,28 @@ Hardening Recommendations
 | Finance | ❌ |
 | IT | ❌ |
 
-- This confirmed the correct implementation of:
+- This validated:
 
     - Department-based authorization
+    - Active Directory Security Groups
     - SMB Share Permissions
     - NTFS Permissions
-    - Active Directory Security Groups
 
 ---
 
 ## Web Application Assessment
 
-- The Ubuntu server hosted a WordPress application deployed on Apache with MariaDB.
+- The Ubuntu Server hosted a WordPress application running on Apache with MariaDB.
 
-- The assessment focused on:
+- Assessment activities included:
 
-    - Web server identification
-    - HTTP response inspection
-    - Content discovery
+    - HTTP inspection
+    - Directory enumeration
     - Default endpoint verification
     - Configuration review
+    - Administrative interface identification
 
----
-
-### Technologies Identified
+### Identified Technologies
 
 | Component | Technology |
 |------------|------------|
@@ -735,22 +869,7 @@ Hardening Recommendations
 
 ---
 
-### HTTP Review
-
-- Manual HTTP inspection confirmed:
-
-    - Successful HTTP responses
-    - Standard Apache behavior
-    - WordPress application deployment
-    - Expected administrative endpoints
-
-- The Apache `server-status` endpoint was also identified during configuration review and documented as a security observation.
-
----
-
-## Assessment Summary
-
-- The assessment successfully validated the intended operation of the MiniCorp environment while documenting configuration observations and authorization behavior.
+### Assessment Summary
 
 | Assessment Area | Status |
 |-----------------|:------:|
@@ -765,49 +884,43 @@ Hardening Recommendations
 | Configuration Review | ✅ |
 | Evidence Collection | ✅ |
 
-- The assessment demonstrated that the enterprise environment was functioning as designed while providing realistic opportunities to evaluate common administrative services and security configurations.
+- The assessment demonstrated that the MiniCorp environment functioned as intended while providing realistic opportunities to validate enterprise administration and security controls.
 
 ---
 
-### Key Findings
-
-- The security assessment identified several observations related to service configuration, application exposure, and enterprise security posture. Unless otherwise stated, all findings were identified within the isolated MiniCorp laboratory environment.
+## Key Findings
 
 | ID | Finding | Severity | Status |
 |----|----------|:--------:|:------:|
 | MC-001 | Apache `server-status` endpoint accessible | Low | Documented |
 | MC-002 | WordPress administrative interface exposed | Informational | Documented |
 | MC-003 | WordPress XML-RPC endpoint available | Informational | Documented |
-| MC-004 | Departmental SMB authorization functioning as intended | Positive | Validated |
+| MC-004 | Departmental SMB authorization functioning correctly | Positive | Validated |
 | MC-005 | Active Directory integrated DNS functioning correctly | Positive | Validated |
 | MC-006 | Authenticated LDAP directory enumeration available | Informational | Documented |
 
-> **Note**
->
-> Complete finding details, supporting evidence, risk analysis, and remediation guidance are available in [`docs/08-findings.md`](docs/08-findings.md).
+> Complete finding details, supporting screenshots, impact analysis, and remediation guidance are available in **`docs/08-findings.md`**.
 
 ---
 
 ## Hardening Highlights
 
-- The assessment concluded with several recommendations to improve the security posture of the environment while preserving functionality.
-
 ### Windows Infrastructure
 
-- Apply the Principle of Least Privilege for administrative accounts.
-- Regularly review Active Directory group memberships.
+- Apply the Principle of Least Privilege.
+- Review privileged group memberships regularly.
 - Audit delegated permissions.
-- Enable advanced auditing for authentication and policy changes.
+- Enable advanced auditing.
 - Monitor privileged account activity.
 
 ---
 
 ### Group Policy
 
-- Periodically review all Group Policy Objects.
+- Review GPOs periodically.
 - Validate security filtering.
 - Remove obsolete policies.
-- Test policy changes before production deployment.
+- Test policy changes before deployment.
 
 ---
 
@@ -815,7 +928,7 @@ Hardening Recommendations
 
 - Audit share permissions regularly.
 - Review NTFS permissions.
-- Remove unnecessary shared folders.
+- Remove unnecessary shares.
 - Enable SMB signing where appropriate.
 
 ---
@@ -823,9 +936,9 @@ Hardening Recommendations
 ### Linux Server
 
 - Restrict access to Apache administrative endpoints.
-- Keep operating system packages updated.
-- Monitor Apache and authentication logs.
-- Limit SSH access to authorized administrators.
+- Keep packages updated.
+- Monitor Apache logs.
+- Restrict SSH access to authorized administrators.
 
 ---
 
@@ -837,15 +950,11 @@ Hardening Recommendations
 - Enable Multi-Factor Authentication where appropriate.
 - Disable XML-RPC if not required.
 
-> **Note**
->
-> Detailed recommendations are available in [`docs/09-hardening-recommendations.md`](docs/09-hardening-recommendations.md).
+Detailed hardening recommendations are available in **`docs/09-hardening-recommendations.md`**.
 
 ---
 
 ## MITRE ATT&CK Mapping
-
-- The assessment activities can be mapped to relevant MITRE ATT&CK techniques to provide defensive context.
 
 | Assessment Activity | ATT&CK Technique |
 |---------------------|------------------|
@@ -857,9 +966,7 @@ Hardening Recommendations
 | Network Share Discovery | T1135 |
 | Active Scanning | T1595 |
 
-> **Note**
->
-> This mapping is intended to relate assessment activities to the ATT&CK framework. It does not imply adversary emulation.
+> This mapping relates assessment activities to the MITRE ATT&CK framework and does not represent adversary emulation.
 
 ---
 
@@ -875,7 +982,7 @@ Hardening Recommendations
 | Linux Administration | Apache, PHP, MariaDB, WordPress, OpenSSH |
 | Networking | DNS, LDAP, SMB, TCP/IP, HTTP |
 | Security Assessment | Enumeration, Configuration Review, Authorization Validation |
-| Documentation | Technical Writing, Evidence Collection, Findings, Recommendations |
+| Documentation | Technical Writing, Findings, Hardening Recommendations |
 
 ---
 
@@ -903,19 +1010,67 @@ Hardening Recommendations
 MiniCorp/
 │
 ├── README.md
-├── LICENSE
 ├── .gitignore
 │
-├── docs/
 ├── diagrams/
-├── screenshots/
-├── evidence/
+│   ├── README.md
+│   ├── enterprise-network.svg
+│   ├── active-directory.svg
+│   ├── authentication-flow.svg
+│   ├── group-policy-flow.svg
+│   └── security-assessment-workflow.svg
+│
+├── docs/
+│   ├── 01-project-overview.md
+│   ├── 02-lab-architecture.md
+│   ├── 03-active-directory.md
+│   ├── 04-linux-server.md
+│   ├── 05-network-services.md
+│   ├── 06-group-policy.md
+│   ├── 07-security-assessment.md
+│   ├── 08-findings.md
+│   ├── 09-hardening-recommendations.md
+│   ├── 10-mitre-attack-mapping.md
+│   └── 11-lessons-learned.md
+│
 ├── reports/
-├── scripts/
-└── resources/
-```
+│   ├── executive-summary.md
+│   └── security-assessment-report.md
+│
+└── screenshots/
+   ├── infrastructure/
+   │   ├── vmware-workstation.png
+   │   ├── virtual-network-editor.png
+   │   └── host-discovery.png
+   │
+   ├── active-directory/
+   │   ├── active-directory-users-and-computers.png
+   │   └── domain-controller.png
+   │
+   ├── group-policy/
+   │   ├── group-policy-management.png
+   │   ├── workstation-security-gpo.png
+   │   ├── drive-mapping-gpo.png
+   │   └── security-filtering.png
+   │
+   ├── linux/
+   │   ├── ubuntu-server.png
+   │   ├── apache-service-running.png
+   │   ├── mariadb-service-running.png
+   │   └── network-configuration.png
+   │
+   ├── wordpress/
+   │   ├── wordpress-login.png
+   │   ├── wordpress-dashboard.png
+   │   └── xmlrpc-endpoint.png
+   │
+   └── assessment/
+       ├── ldap-enumeration.png
+       ├── dns-validation.png
+       ├── smb-validation.png
+       └── apache-server-status.png
 
-- A complete explanation of each directory is provided within the project documentation.
+```
 
 ---
 
@@ -930,7 +1085,7 @@ MiniCorp/
 | `05-network-services.md` | DNS, LDAP, SMB, and supporting services |
 | `06-group-policy.md` | Group Policy implementation |
 | `07-security-assessment.md` | Assessment methodology and execution |
-| `08-findings.md` | Detailed findings and evidence |
+| `08-findings.md` | Detailed findings, evidence, and remediation |
 | `09-hardening-recommendations.md` | Security improvement recommendations |
 | `10-mitre-attack-mapping.md` | MITRE ATT&CK mapping |
 | `11-lessons-learned.md` | Key project takeaways |
@@ -941,14 +1096,14 @@ MiniCorp/
 
 - Potential future enhancements include:
 
-    - Windows Event Forwarding
+    - Windows Event Forwarding (WEF)
     - Sysmon deployment
     - Microsoft Defender integration
-    - Wazuh integration
+    - Wazuh deployment
     - SIEM log collection
     - Additional Linux servers
-    - Active Directory Certificate Services
-    - Internal PKI
+    - Active Directory Certificate Services (AD CS)
+    - Internal Public Key Infrastructure (PKI)
     - IIS deployment
     - Automated compliance auditing
     - Infrastructure-as-Code deployment
@@ -961,9 +1116,20 @@ MiniCorp/
 
 - Building MiniCorp reinforced the importance of integrating infrastructure deployment, centralized administration, and structured security assessment into a single workflow.
 
-- The project provided practical experience with enterprise identity management, Windows administration, Linux server deployment, network services, access control, and technical reporting. It also demonstrated the value of documenting evidence, validating observations, and presenting recommendations in a clear and reproducible manner.
+- The project provided practical experience with:
 
-- Perhaps the most significant outcome was understanding that effective security assessments depend not only on technical testing but also on accurate documentation and well-supported conclusions.
+    - Enterprise infrastructure deployment
+    - Active Directory administration
+    - Windows administration
+    - Linux server deployment
+    - Enterprise networking
+    - Identity and Access Management (IAM)
+    - Security assessment methodology
+    - Technical documentation
+    - Security reporting
+    - Hardening recommendations
+
+- Perhaps the most valuable lesson was understanding that effective security assessments depend not only on technical validation, but also on accurate documentation, reproducible evidence, and well-supported conclusions.
 
 ---
 
@@ -985,20 +1151,16 @@ MiniCorp/
 
 ---
 
-## License
+<div align="center">
 
-- This project is licensed under the **MIT License**.
+## MiniCorp
 
-- See the [LICENSE](LICENSE) file for the full license text.
+### Enterprise Infrastructure, Active Directory Administration, and Security Assessment Lab
+
+Designed, deployed, administered, assessed, and documented as a complete enterprise cybersecurity portfolio project.
 
 ---
 
-<div align="center">
-
-**MiniCorp**
-
-*Enterprise Infrastructure, Active Directory Administration, and Security Assessment Lab*
-
-Built for learning, administration, assessment, and professional cybersecurity portfolio development.
+⭐ If you found this project useful or interesting, consider starring the repository.
 
 </div>
